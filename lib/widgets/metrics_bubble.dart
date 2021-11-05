@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-/// This widget displays a weight and a label for strength assessment summaries
+/// A widget that displays a weight (lbs) and a label for
+/// strength assessment summaries
 class MetricsBubble extends StatelessWidget {
-  /// Represents the type of workout
+  /// The label that is shown in the upper portion of the widget.
   final String label;
 
-  /// Represents a value between 0 and 350 lbs
+  /// The weight that is displayed in the middle portion of the widget.
   final num weight;
 
-  /// Represents the diamter of the bubble
+  /// The diameter for the bubble.
   final double? diameter;
 
-  /// Represents decoration of the widget
+  /// An optional decoration to modify the appearance of the bubble.
   final BoxDecoration? decoration;
 
-  /// Represents an optional style for the label
+  /// An optional style to modify the appearance of the label.
   final TextStyle? labelStyle;
 
-  /// Represents an optional style for the weight
+  /// An optional style to modify the apperance of the weight.
   final TextStyle? weightStyle;
 
-  /// Represents an optionals style for the unit
+  /// An optional style to modify the appearance of the unit.
   final TextStyle? unitStyle;
+
+  /// An optional onTap callback for registering a user touch action.
+  final VoidCallback? onTap;
 
   const MetricsBubble(
       {Key? key,
@@ -32,54 +36,57 @@ class MetricsBubble extends StatelessWidget {
       this.decoration,
       this.labelStyle,
       this.weightStyle,
-      this.unitStyle})
+      this.unitStyle,
+      this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ClipOval(
-      child: SizedBox(
-        height: diameter ?? BubbleConstants.kBubbleDiameter,
-        width: diameter ?? BubbleConstants.kBubbleDiameter,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-                decoration: decoration ?? BubbleConstants.kBubbleBoxDecoration),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SvgPicture.asset(
-                'assets/graph.svg',
-                semanticsLabel: 'Bubble Graph',
-                width: diameter,
+    return GestureDetector(
+      onTap: onTap,
+      child: ClipOval(
+        child: SizedBox(
+          height: diameter ?? BubbleConstants.kBubbleDiameter,
+          width: diameter ?? BubbleConstants.kBubbleDiameter,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                  decoration:
+                      decoration ?? BubbleConstants.kBubbleBoxDecoration),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: SvgPicture.asset(
+                  'assets/graph.svg',
+                  semanticsLabel: 'Bubble Graph',
+                  width: diameter,
+                ),
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
+              Center(
+                child: Text(
+                  '$weight',
+                  style: weightStyle ?? BubbleConstants.kWeightStyle,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Positioned(
+                top: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.15,
+                child: Text(
                   label,
                   style: labelStyle ?? BubbleConstants.kTextStyle,
                   overflow: TextOverflow.ellipsis,
                 ),
-                Center(
-                  child: Text(
-                    '$weight',
-                    style: weightStyle ?? BubbleConstants.kWeightStyle,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+              ),
+              Positioned(
+                bottom: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.1,
+                child: Text(
+                  'lbs',
+                  style: unitStyle ?? BubbleConstants.kUnitStyle,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Center(
-                  child: Text(
-                    'lbs',
-                    style: unitStyle ?? BubbleConstants.kUnitStyle,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                )
-              ],
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

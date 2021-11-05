@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:metrics_bubble/widgets/metrics_bubble.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class DemoPage extends StatefulWidget {
+  const DemoPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DemoPage> createState() => _DemoPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Container(
-          color: Colors.red,
-          child: const Center(
-            child: MetricsBubble(
-              label: 'Core',
-              weight: 123,
-              diameter: 273,
-            ),
+        body: const Center(
+          child: MetricsBubble(
+            label: 'Core',
+            weight: 123,
           ),
         ));
   }
