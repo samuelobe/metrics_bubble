@@ -18,12 +18,12 @@ class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        //resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(widget.title),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: ListView(
             children: [
               MetricsBubble(
                 label: label,
@@ -90,6 +90,7 @@ class _DemoPageState extends State<DemoPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
+                            keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'^\d+$')),
