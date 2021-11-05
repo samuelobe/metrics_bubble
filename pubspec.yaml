@@ -60,9 +60,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/graph.svg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -75,13 +75,13 @@ flutter:
     - family: Helvetica
       fonts:
         - asset: assets/fonts/Helvetica-Font/Helvetica.ttf
-        - asset: assets/fonts/Helvetica-Font/Helvetica-Bold.ttf
-        - weight: 700
+        # - asset: assets/fonts/Helvetica-Font/Helvetica-Bold.ttf
+        # - weight: 700
     - family: League Gothic
       fonts:
         - asset: assets/fonts/League-Gothic/LeagueGothic-Regular.otf
-        - asset: assets/fonts/League-Gothic/LeagueGothic-Italic.otf
-        - style: italic
+        # - asset: assets/fonts/League-Gothic/LeagueGothic-Italic.otf
+        # - style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
