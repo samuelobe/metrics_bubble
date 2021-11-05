@@ -18,7 +18,7 @@ class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(widget.title),
         ),
