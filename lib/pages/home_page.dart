@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:metrics_bubble/widgets/metrics_bubble.dart';
 
 class DemoPage extends StatefulWidget {
@@ -69,7 +70,7 @@ class _DemoPageState extends State<DemoPage> {
                                 ),
                                 filled: true,
                                 hintStyle: TextStyle(color: Colors.grey[800]),
-                                hintText: 'Type in your text',
+                                hintText: 'Type in your label',
                                 fillColor: Colors.white70),
                           ),
                         ),
@@ -89,6 +90,10 @@ class _DemoPageState extends State<DemoPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d+$')),
+                            ],
                             onChanged: (str) => {
                               if (str.isNotEmpty)
                                 {
@@ -103,7 +108,7 @@ class _DemoPageState extends State<DemoPage> {
                                 ),
                                 filled: true,
                                 hintStyle: TextStyle(color: Colors.grey[800]),
-                                hintText: 'Type in your text',
+                                hintText: 'Type in your weight',
                                 fillColor: Colors.white70),
                           ),
                         ),
@@ -117,12 +122,3 @@ class _DemoPageState extends State<DemoPage> {
         ));
   }
 }
-
-// class BubbleEditTextBox extends StatelessWidget {
-//   const BubbleEditTextBox({ Key? key }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(children: [],);
-//   }
-// }
