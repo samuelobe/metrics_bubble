@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.red,
           child: const Center(
             child: MetricsBubble(
-              label: 'Coreeeeeeeeeeeeeeeeee',
+              label: 'Core',
               weight: 123,
               diameter: 273,
             ),

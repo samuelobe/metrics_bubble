@@ -37,51 +37,50 @@ class MetricsBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: diameter ?? BubbleConstants.kBubbleDiameter,
-      width: diameter ?? BubbleConstants.kBubbleDiameter,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
-              decoration: decoration ?? BubbleConstants.kBubbleBoxDecoration),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: SvgPicture.asset(
-              'assets/graph.svg',
-              semanticsLabel: 'Bubble Graph',
-              width: diameter,
+    return ClipOval(
+      child: SizedBox(
+        height: diameter ?? BubbleConstants.kBubbleDiameter,
+        width: diameter ?? BubbleConstants.kBubbleDiameter,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+                decoration: decoration ?? BubbleConstants.kBubbleBoxDecoration),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SvgPicture.asset(
+                'assets/graph.svg',
+                semanticsLabel: 'Bubble Graph',
+                width: diameter,
+              ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                color: Colors.blue,
-                child: Text(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
                   label,
                   style: labelStyle ?? BubbleConstants.kTextStyle,
                   overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              Center(
-                child: Text(
-                  '$weight',
-                  style: weightStyle ?? BubbleConstants.kWeightStyle,
-                  overflow: TextOverflow.ellipsis,
+                Center(
+                  child: Text(
+                    '$weight',
+                    style: weightStyle ?? BubbleConstants.kWeightStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              Center(
-                child: Text(
-                  'lbs',
-                  style: unitStyle ?? BubbleConstants.kUnitStyle,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              )
-            ],
-          ),
-        ],
+                Center(
+                  child: Text(
+                    'lbs',
+                    style: unitStyle ?? BubbleConstants.kUnitStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
