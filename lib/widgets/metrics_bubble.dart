@@ -8,7 +8,7 @@ class MetricsBubble extends StatelessWidget {
   final String label;
 
   /// The weight that is displayed in the middle portion of the widget.
-  final num weight;
+  final int weight;
 
   /// The diameter for the bubble.
   final double? diameter;

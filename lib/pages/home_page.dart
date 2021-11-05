@@ -17,11 +17,13 @@ class _DemoPageState extends State<DemoPage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: const Center(
-          child: MetricsBubble(
-            label: 'Core',
-            weight: 123,
-          ),
+        body: Column(
+          children: const [
+            MetricsBubble(
+              label: 'Core',
+              weight: 123,
+            ),
+          ],
         ));
   }
 }
