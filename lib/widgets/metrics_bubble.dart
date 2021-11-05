@@ -44,48 +44,48 @@ class MetricsBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: ClipOval(
-        child: SizedBox(
-          height: diameter ?? BubbleConstants.kBubbleDiameter,
-          width: diameter ?? BubbleConstants.kBubbleDiameter,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                  decoration:
-                      decoration ?? BubbleConstants.kBubbleBoxDecoration),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: SvgPicture.asset(
-                  'assets/graph.svg',
-                  semanticsLabel: 'Bubble Graph',
-                  width: diameter,
+      child: Container(
+        decoration: decoration ?? BubbleConstants.kBubbleBoxDecoration,
+        child: ClipOval(
+          child: SizedBox(
+            height: diameter ?? BubbleConstants.kBubbleDiameter,
+            width: diameter ?? BubbleConstants.kBubbleDiameter,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SvgPicture.asset(
+                    'assets/graph.svg',
+                    semanticsLabel: 'Bubble Graph',
+                    width: diameter,
+                  ),
                 ),
-              ),
-              Center(
-                child: Text(
-                  '$weight',
-                  style: weightStyle ?? BubbleConstants.kWeightStyle,
-                  overflow: TextOverflow.ellipsis,
+                Center(
+                  child: Text(
+                    '$weight',
+                    style: weightStyle ?? BubbleConstants.kWeightStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              Positioned(
-                top: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.15,
-                child: Text(
-                  label,
-                  style: labelStyle ?? BubbleConstants.kTextStyle,
-                  overflow: TextOverflow.ellipsis,
+                Positioned(
+                  top: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.15,
+                  child: Text(
+                    label,
+                    style: labelStyle ?? BubbleConstants.kTextStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              Positioned(
-                bottom: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.1,
-                child: Text(
-                  'lbs',
-                  style: unitStyle ?? BubbleConstants.kUnitStyle,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              )
-            ],
+                Positioned(
+                  bottom: (diameter ?? BubbleConstants.kBubbleDiameter) * 0.1,
+                  child: Text(
+                    'lbs',
+                    style: unitStyle ?? BubbleConstants.kUnitStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
