@@ -93,12 +93,12 @@ class MetricsBubble extends StatelessWidget {
   }
 }
 
-/// This class contains all of the constants used in the MetricsBubble widget
+/// A class contains all of the constants used in the MetricsBubble widget
 class BubbleConstants {
-  /// Represents the default diameter if none is provided
+  /// The default diameter if none is provided.
   static const double kBubbleDiameter = 272;
 
-  /// Represents the default style for the box decoration widget
+  /// The default style for the box decoration widget.
   static const kBubbleBoxDecoration = BoxDecoration(
     color: Color(0xff53a99a),
     shape: BoxShape.circle,
@@ -111,7 +111,7 @@ class BubbleConstants {
     ],
   );
 
-  /// Represents the default label style if none is provided
+  /// Tthe default label style if none is provided.
   static const kTextStyle = TextStyle(
     fontFamily: 'Helvetica',
     fontWeight: FontWeight.bold,
@@ -120,14 +120,14 @@ class BubbleConstants {
     color: Colors.white,
   );
 
-  /// Represents the default weight style if none is provided
+  /// The default weight style if none is provided.
   static const kWeightStyle = TextStyle(
     fontFamily: 'League Gothic',
     fontSize: 127,
     color: Colors.white,
   );
 
-  /// Represents the default unit style if none is provided
+  /// The default unit style if none is provided.
   static const kUnitStyle = TextStyle(
     fontFamily: 'League Gothic',
     fontSize: 38,
