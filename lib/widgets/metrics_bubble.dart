@@ -96,7 +96,7 @@ class MetricsBubble extends StatelessWidget {
   }
 }
 
-/// A class contains all of the constants used in the MetricsBubble widget
+/// A class that contains all of the constants used in the MetricsBubble widget
 class BubbleConstants {
   /// The default diameter if none is provided.
   static const double kBubbleDiameter = 272;
