@@ -114,7 +114,7 @@ class BubbleConstants {
     ],
   );
 
-  /// Tthe default label style if none is provided.
+  /// The default label style if none is provided.
   static const kTextStyle = TextStyle(
     fontFamily: 'Helvetica',
     fontWeight: FontWeight.bold,
